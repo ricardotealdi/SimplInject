@@ -1,13 +1,20 @@
-﻿using Ninject;
+﻿using System;
+using System.Linq;
+using Ninject;
 using MACSkeptic.Commons.Extensions;
 
 namespace SimplInject
 {
-    public class SimplInjectRepository
+    public static class SimplInjectRepository
     {
         private static ITypeRetriever _typeRetriever;
         
         private static StandardKernel _kernel;
+
+        static SimplInjectRepository()
+        {
+            RegisterDependencies();
+        }
 
         private static void RegisterDependencies()
         {
@@ -22,14 +29,26 @@ namespace SimplInject
         
         public static void InjectTypesFrom(string assemblyname)
         {
-            RegisterDependencies();
             _typeRetriever
                 .RetrieveFrom(assemblyname)
                 .Each(
-                    type =>
-                        type.GetInterfaces().Each(@interface => _kernel.Bind(@interface).To(type)));
+                    RegisterType);
         }
 
+        public static void RegisterType(Type type)
+        {
+            var attributes = type.GetCustomAttributes(typeof (SimplInjectAttribute), false);
+
+            if(attributes.Any())
+            {
+                var simplInjectAttribute = (SimplInjectAttribute) attributes.FirstOrDefault();
+
+                type.GetInterfaces()
+                    .Each(@interface => ScopeFactory.With(_kernel.Bind(@interface).To(type), simplInjectAttribute.Scope));
+            }
+            
+        }
+        
         public static T Get<T>()
         {
             return _kernel.Get<T>();

@@ -9,7 +9,7 @@ namespace SimplInject.Tests
         [TestMethod]
         public void ShouldRetrieveAllTypesFromAGivenAssemblyName()
         {
-            new AssemblyLoader().RetrieveTypesFrom("DummyProject").Should().Have.Count.EqualTo(3);
+            new AssemblyLoader().RetrieveTypesFrom("DummyProject").Should().Have.Count.EqualTo(5);
         }
     }
 }

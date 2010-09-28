@@ -3,7 +3,7 @@
 namespace DummyProject
 {
     [SimplInject]
-    public class ConcreteClass : IAmAnInterface
+    public class TransientConcreteClass : IAmAnInterface
     {
     }
 }

@@ -39,7 +39,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ConcreteClass.cs" />
+    <Compile Include="IAmAnotherInterface.cs" />
+    <Compile Include="SingletonConcreteClass.cs" />
+    <Compile Include="TransientConcreteClass.cs" />
     <Compile Include="ConcreteClassService.cs" />
     <Compile Include="IAmAnInterface.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

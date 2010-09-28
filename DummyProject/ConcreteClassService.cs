@@ -2,11 +2,13 @@
 {
     public class ConcreteClassService
     {
-        private readonly IAmAnInterface _dependency;
+        public IAmAnotherInterface SingletonDependency { get; private set; }
+        public IAmAnInterface TransientDependency { get; private set; }
 
-        public ConcreteClassService(IAmAnInterface dependency)
+        public ConcreteClassService(IAmAnInterface transientDependency, IAmAnotherInterface singletonDependency)
         {
-            _dependency = dependency;
+            SingletonDependency = singletonDependency;
+            TransientDependency = transientDependency;
         }
     }
 }

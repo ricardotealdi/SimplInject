@@ -7,14 +7,22 @@ namespace SimplInject
     {
         public SimplInjectAttribute()
         {
-            //Scope = NinjectableScope.Transient;
+            Scope = SimplInjectScope.Transient;
         }
 
-        /*public SimplInjectAttribute(NinjectableScope scope)
+        public SimplInjectAttribute(SimplInjectScope scope)
         {
             Scope = scope;
-        }*/
+        }
 
-        //public NinjectableScope Scope { get; set; };
+        public SimplInjectScope Scope { get; private set; }
+    }
+
+    public enum SimplInjectScope
+    {
+        Transient,
+        Singleton,
+        Thread,
+        Request
     }
 }

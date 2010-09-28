@@ -18,7 +18,7 @@ namespace SimplInject.Tests
         [TestMethod]
         public void ShouldBeTrueIfTheTypeHasTheSimplInjectAttribute()
         {
-            _verifier.HasAttribute(typeof (ConcreteClass)).Should().Be.True();
+            _verifier.HasAttribute(typeof (TransientConcreteClass)).Should().Be.True();
         }
 
         [TestMethod]

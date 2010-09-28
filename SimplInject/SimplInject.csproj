@@ -50,6 +50,7 @@
     <Compile Include="ITypeRetriever.cs" />
     <Compile Include="IAttributeVerifier.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ScopeFactory.cs" />
     <Compile Include="TypeRetriever.cs" />
     <Compile Include="SimplInjectAttribute.cs" />
     <Compile Include="AttributeVerifier.cs" />
