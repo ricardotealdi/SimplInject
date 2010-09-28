@@ -1,0 +1,48 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimplInject", "SimplInject\SimplInject.csproj", "{3A7DBC0A-EEF3-4B0B-A584-E0A807959267}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimplInject.Tests", "SimplInject.Tests\SimplInject.Tests.csproj", "{EFAC8AC1-728F-41A7-952D-A3D1D0844026}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{D2808CEE-ABE2-4510-B2EE-7266C2FDBFEE}"
+	ProjectSection(SolutionItems) = preProject
+		Local.testsettings = Local.testsettings
+		SimplInject.vsmdi = SimplInject.vsmdi
+		TraceAndTestImpact.testsettings = TraceAndTestImpact.testsettings
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Test", "Test", "{65C02E79-939A-4B27-9767-8AE0628E4D49}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DummyProject", "DummyProject\DummyProject.csproj", "{40FA1E3B-295D-4AC4-BA39-4169AE2EAA3C}"
+EndProject
+Global
+	GlobalSection(TestCaseManagementSettings) = postSolution
+		CategoryFile = SimplInject.vsmdi
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3A7DBC0A-EEF3-4B0B-A584-E0A807959267}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3A7DBC0A-EEF3-4B0B-A584-E0A807959267}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3A7DBC0A-EEF3-4B0B-A584-E0A807959267}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3A7DBC0A-EEF3-4B0B-A584-E0A807959267}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EFAC8AC1-728F-41A7-952D-A3D1D0844026}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EFAC8AC1-728F-41A7-952D-A3D1D0844026}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EFAC8AC1-728F-41A7-952D-A3D1D0844026}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EFAC8AC1-728F-41A7-952D-A3D1D0844026}.Release|Any CPU.Build.0 = Release|Any CPU
+		{40FA1E3B-295D-4AC4-BA39-4169AE2EAA3C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{40FA1E3B-295D-4AC4-BA39-4169AE2EAA3C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{40FA1E3B-295D-4AC4-BA39-4169AE2EAA3C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{40FA1E3B-295D-4AC4-BA39-4169AE2EAA3C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{EFAC8AC1-728F-41A7-952D-A3D1D0844026} = {65C02E79-939A-4B27-9767-8AE0628E4D49}
+		{40FA1E3B-295D-4AC4-BA39-4169AE2EAA3C} = {65C02E79-939A-4B27-9767-8AE0628E4D49}
+	EndGlobalSection
+EndGlobal

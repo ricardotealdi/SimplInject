@@ -1,0 +1,15 @@
+[Bb]in
+[Oo]bj
+*.user
+*.suo
+TestResults
+*_ReSharper*
+*.log
+ivy*.xml
+**/*.Publish.xml
+*.Cache
+*.dll
+*.pdb
+*.vsmdi
+.DS_Store
+*swp*
