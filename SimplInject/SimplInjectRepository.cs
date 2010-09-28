@@ -2,6 +2,7 @@
 using System.Linq;
 using Ninject;
 using MACSkeptic.Commons.Extensions;
+using Ninject.Syntax;
 
 namespace SimplInject
 {
@@ -32,10 +33,10 @@ namespace SimplInject
             _typeRetriever
                 .RetrieveFrom(assemblyname)
                 .Each(
-                    RegisterType);
+                    RegisterTypeWithSimplInjectAttribute);
         }
 
-        public static void RegisterType(Type type)
+        public static void RegisterTypeWithSimplInjectAttribute(Type type)
         {
             var attributes = type.GetCustomAttributes(typeof (SimplInjectAttribute), false);
 
@@ -44,9 +45,14 @@ namespace SimplInject
                 var simplInjectAttribute = (SimplInjectAttribute) attributes.FirstOrDefault();
 
                 type.GetInterfaces()
-                    .Each(@interface => ScopeFactory.With(_kernel.Bind(@interface).To(type), simplInjectAttribute.Scope));
+                    .Each(@interface => ScopeFactory.With(RegisterType(@interface, type), simplInjectAttribute.Scope));
             }
             
+        }
+
+        public static IBindingWhenInNamedWithOrOnSyntax<object> RegisterType(Type @interface, Type type)
+        {
+            return _kernel.Bind(@interface).To(type);
         }
         
         public static T Get<T>()

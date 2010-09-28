@@ -26,5 +26,31 @@ namespace SimplInject.Tests
             service1.SingletonDependency.Should().Be.EqualTo(service2.SingletonDependency);
             service1.TransientDependency.Should().Not.Be.EqualTo(service2.TransientDependency);
         }
+
+        [TestMethod]
+        public void ShouldInjectTypeWhenRegisteringThemByHand()
+        {
+            SimplInjectRepository.RegisterType(typeof(IDummy), typeof(Dummy));
+
+            SimplInjectRepository.Get<DummyService>().Should().Not.Be.Null();
+        }
+    }
+
+    public interface IDummy
+    {
+    }
+
+    public class Dummy : IDummy
+    {
+    }
+
+    public class DummyService
+    {
+        private readonly IDummy _dummy;
+
+        public DummyService(IDummy dummy)
+        {
+            _dummy = dummy;
+        }
     }
 }
