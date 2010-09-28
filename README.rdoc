@@ -1,0 +1,24 @@
+= SimplInject
+
+A simple dependency injection for .NET
+
+= Usage
+
+== Registering by Hand
+
+    SimplInjectRepository.RegisterType(typeof(IInterface), typeof(Concretelass));
+
+== Registering all types with SimplInjectAttribute from an assembly
+
+=== Adding SimplInjectAttribute into your injectable class
+
+    [SimplInject]
+    public class ConcreteClass : IAmAnInterface {}
+
+=== Loading assembly and registering types
+
+    SimplInjectRepository.InjectTypesFrom("Your.Assembly.Name.To.Be.Loaded");
+
+== Resolving a type
+
+    var myInstance = SimplInjectRepository.Get<DummyClass>();
