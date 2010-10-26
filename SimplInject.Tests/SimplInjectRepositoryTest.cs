@@ -33,6 +33,8 @@ namespace SimplInject.Tests
             SimplInjectRepository.RegisterType(typeof(IDummy), typeof(Dummy));
 
             SimplInjectRepository.Get<DummyService>().Should().Not.Be.Null();
+
+            SimplInjectRepository.Get(typeof(DummyService)).Should().Not.Be.Null();
         }
     }
 

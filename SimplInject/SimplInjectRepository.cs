@@ -19,24 +19,22 @@ namespace SimplInject
 
         private static void RegisterDependencies()
         {
-            if (_kernel == null)
-            {
-                _kernel = new StandardKernel();
-                _kernel.Bind<IAssemblyLoader>().To<AssemblyLoader>();
-                _kernel.Bind<IAttributeVerifier>().To<AttributeVerifier>();
-                _typeRetriever = _kernel.Get<TypeRetriever>();
-            }
+            if (_kernel != null)
+                return;
+            _kernel = new StandardKernel();
+            _kernel.Bind<IAssemblyLoader>().To<AssemblyLoader>();
+            _kernel.Bind<IAttributeVerifier>().To<AttributeVerifier>();
+            _typeRetriever = _kernel.Get<TypeRetriever>();
         }
         
         public static void InjectTypesFrom(string assemblyname)
         {
             _typeRetriever
                 .RetrieveFrom(assemblyname)
-                .Each(
-                    RegisterTypeWithSimplInjectAttribute);
+                .Each(RegisterTypeWithSimplInjectAttribute);
         }
 
-        public static void RegisterTypeWithSimplInjectAttribute(Type type)
+        private static void RegisterTypeWithSimplInjectAttribute(Type type)
         {
             var attributes = type.GetCustomAttributes(typeof (SimplInjectAttribute), false);
 
@@ -58,6 +56,11 @@ namespace SimplInject
         public static T Get<T>()
         {
             return _kernel.Get<T>();
+        }
+
+        public static object Get(Type type)
+        {
+            return _kernel.Get(type);
         }
     }
 }
