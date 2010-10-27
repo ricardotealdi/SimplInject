@@ -27,10 +27,30 @@ namespace SimplInject
             _typeRetriever = _kernel.Get<TypeRetriever>();
         }
         
-        public static void InjectTypesFrom(string assemblyname)
+        public static void InjectTypesFrom(params string[] assemblyNames)
+        {
+            assemblyNames.Each(InjectTypesFrom);
+        }
+
+        public static IBindingWhenInNamedWithOrOnSyntax<object> RegisterType(Type @interface, Type type)
+        {
+            return _kernel.Bind(@interface).To(type);
+        }
+
+        public static T Get<T>()
+        {
+            return _kernel.Get<T>();
+        }
+
+        public static object Get(Type type)
+        {
+            return _kernel.Get(type);
+        }
+
+        private static void InjectTypesFrom(string assemblyName)
         {
             _typeRetriever
-                .RetrieveFrom(assemblyname)
+                .RetrieveFrom(assemblyName)
                 .Each(RegisterTypeWithSimplInjectAttribute);
         }
 
@@ -46,21 +66,6 @@ namespace SimplInject
                     .Each(@interface => ScopeFactory.With(RegisterType(@interface, type), simplInjectAttribute.Scope));
             }
             
-        }
-
-        public static IBindingWhenInNamedWithOrOnSyntax<object> RegisterType(Type @interface, Type type)
-        {
-            return _kernel.Bind(@interface).To(type);
-        }
-        
-        public static T Get<T>()
-        {
-            return _kernel.Get<T>();
-        }
-
-        public static object Get(Type type)
-        {
-            return _kernel.Get(type);
         }
     }
 }
