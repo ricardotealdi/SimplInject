@@ -8,7 +8,6 @@ TestResults
 ivy*.xml
 **/*.Publish.xml
 *.Cache
-*.dll
 *.pdb
 *.vsmdi
 .DS_Store
