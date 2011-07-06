@@ -32,9 +32,11 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="MACSkeptic.Commons">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>..\Libraries\MACSkeptic.Commons.dll</HintPath>
     </Reference>
     <Reference Include="Ninject">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>..\Libraries\Ninject.dll</HintPath>
     </Reference>
     <Reference Include="System" />
