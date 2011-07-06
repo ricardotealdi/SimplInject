@@ -1,26 +1,33 @@
-﻿using Ninject.Syntax;
+﻿using System.Collections.Generic;
+using Ninject.Syntax;
+using SimplInject.Scope;
 
 namespace SimplInject
 {
     public static class ScopeFactory
     {
+        private static readonly NinjectBindingTransientScope NinjectBindingTransientScope = 
+            new NinjectBindingTransientScope();
+        private static readonly NinjectBindingRequestScope NinjectBindingRequestScope =
+            new NinjectBindingRequestScope();
+        private static readonly NinjectBindingSingletonScope NinjectBindingSingletonScope =
+            new NinjectBindingSingletonScope();
+        private static readonly NinjectBindingThreadScope NinjectBindingThreadScope =
+            new NinjectBindingThreadScope();
+
+        private static readonly
+            IDictionary<SimplInjectScope, INinjectBinding> MapSimplinjectScopeToNinjectBindingScope =
+                new Dictionary<SimplInjectScope, INinjectBinding>
+                    {
+                        {SimplInjectScope.Transient, NinjectBindingTransientScope},
+                        {SimplInjectScope.Request, NinjectBindingRequestScope},
+                        {SimplInjectScope.Singleton, NinjectBindingSingletonScope},
+                        {SimplInjectScope.Thread, NinjectBindingThreadScope},
+                    };
+
         public static void With(IBindingWhenInNamedWithOrOnSyntax<object> binding, SimplInjectScope scope)
         {
-            switch (scope)
-            {
-                case SimplInjectScope.Transient:
-                    binding.InTransientScope();
-                    break;
-                case SimplInjectScope.Request:
-                    binding.InRequestScope();
-                    break;
-                case SimplInjectScope.Singleton:
-                    binding.InSingletonScope();
-                    break;
-                case SimplInjectScope.Thread:
-                    binding.InThreadScope();
-                    break;
-            }
+            MapSimplinjectScopeToNinjectBindingScope[scope].Bind(binding);
         }
     }
 }

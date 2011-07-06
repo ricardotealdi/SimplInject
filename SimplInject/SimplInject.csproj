@@ -46,11 +46,17 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AssemblyLoader.cs" />
+    <Compile Include="I.cs" />
     <Compile Include="IAssemblyLoader.cs" />
     <Compile Include="ITypeRetriever.cs" />
     <Compile Include="IAttributeVerifier.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ScopeFactory.cs" />
+    <Compile Include="Scope\INinjectBinding.cs" />
+    <Compile Include="Scope\NinjectBindingRequestScope.cs" />
+    <Compile Include="Scope\NinjectBindingSingletonScope.cs" />
+    <Compile Include="Scope\NinjectBindingThreadScope.cs" />
+    <Compile Include="Scope\NinjectBindingTransientScope.cs" />
     <Compile Include="TypeRetriever.cs" />
     <Compile Include="SimplInjectAttribute.cs" />
     <Compile Include="AttributeVerifier.cs" />
