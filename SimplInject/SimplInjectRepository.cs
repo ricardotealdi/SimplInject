@@ -37,6 +37,11 @@ namespace SimplInject
             return _kernel.Bind(@interface).To(type);
         }
 
+        public static IBindingWhenInNamedWithOrOnSyntax<Interface> RegisterType<Interface, Concrete>() where Concrete : Interface
+        {
+            return _kernel.Bind<Interface>().To<Concrete>();
+        }
+
         public static T Get<T>()
         {
             return _kernel.Get<T>();

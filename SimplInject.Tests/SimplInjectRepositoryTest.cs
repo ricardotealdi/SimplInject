@@ -36,6 +36,14 @@ namespace SimplInject.Tests
 
             SimplInjectRepository.Get(typeof(DummyService)).Should().Not.Be.Null();
         }
+
+        [TestMethod]
+        public void ShouldInjectTypeWhenRegisteringThemByHandUsingGenerics()
+        {
+            SimplInjectRepository.RegisterType<IDummy, Dummy>();
+
+            SimplInjectRepository.Get<DummyService>().Should().Not.Be.Null();
+        }
     }
 
     public interface IDummy
