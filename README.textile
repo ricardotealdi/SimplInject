@@ -1,0 +1,30 @@
+h1. SimplInject
+
+p. A simple dependency injection for .NET that uses "Ninject":https://github.com/ninject/ninject on background
+
+h2. Usage
+
+h3. Registering by Hand
+
+bc.. SimplInjectRepository.RegisterType(typeof(IInterface), typeof(Concretelass));
+
+p. or
+
+bc.. SimplInjectRepository.RegisterType<IInterface, Concretelass>();
+
+h3. Registering all SimplInjectAttribute types from an assembly
+
+h4. Adding SimplInjectAttribute into your injectable class
+
+bc.. [SimplInject]
+public class ConcreteClass : IAmAnInterface {}
+
+p. That attribute will make the class to be resolved by its interface.
+
+h4. Loading assembly and registering types
+
+bc.. SimplInjectRepository.InjectTypesFrom("Your.Assembly.Name.To.Be.Loaded");
+
+h3. Resolving a type
+
+bc.. var myInstance = SimplInjectRepository.Get<ClassWithDependeciesResolved>();
