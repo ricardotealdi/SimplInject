@@ -28,3 +28,19 @@ bc.. SimplInjectRepository.InjectTypesFrom("Your.Assembly.Name.To.Be.Loaded");
 h3. Resolving a type
 
 bc.. var myInstance = SimplInjectRepository.Get<ClassWithDependeciesResolved>();
+
+h2. Using with a newer Ninject version
+
+p. You can try using assembly binding redirection on your app.config
+
+bc.. <runtime>
+	<assemblyBinding xmlns="urn:schemas-microsoft-com:asm.v1">
+		<dependentAssembly>
+		<assemblyIdentity name="Ninject"
+							publicKeyToken="c7192dc5380945e7"
+							culture="neutral" />
+		<bindingRedirect oldVersion="2.0.0.0"
+							newVersion="{newer-version}"/>
+		</dependentAssembly>
+	</assemblyBinding>
+</runtime>
