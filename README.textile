@@ -39,7 +39,7 @@ bc.. <runtime>
 		<assemblyIdentity name="Ninject"
 							publicKeyToken="c7192dc5380945e7"
 							culture="neutral" />
-		<bindingRedirect oldVersion="2.0.0.0"
+		<bindingRedirect oldVersion="2.2.0.0"
 							newVersion="{newer-version}"/>
 		</dependentAssembly>
 	</assemblyBinding>
