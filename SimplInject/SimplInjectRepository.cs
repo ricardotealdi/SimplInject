@@ -34,7 +34,7 @@ namespace SimplInject
 
         public static IBindingWhenInNamedWithOrOnSyntax<object> RegisterType(Type @interface, Type type)
         {
-            return _kernel.Bind(@interface).To(type);
+            return _kernel.Rebind(@interface).To(type);
         }
 
         public static IBindingWhenInNamedWithOrOnSyntax<TInterface> RegisterType<TInterface, TConcrete>() where TConcrete : TInterface

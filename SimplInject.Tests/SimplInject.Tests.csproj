@@ -37,7 +37,8 @@
     <Reference Include="Moq">
       <HintPath>..\Libraries\Moq.dll</HintPath>
     </Reference>
-    <Reference Include="Ninject">
+    <Reference Include="Ninject, Version=2.0.0.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>..\Libraries\Ninject.dll</HintPath>
     </Reference>
     <Reference Include="SharpTestsEx">

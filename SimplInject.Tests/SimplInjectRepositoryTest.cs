@@ -14,6 +14,15 @@ namespace SimplInject.Tests
 
             SimplInjectRepository.Get<ConcreteClassService>().Should().Not.Be.Null();
         }
+        
+        [TestMethod]
+        public void ShouldReInjectTypesIfItWasAlreadyInjected()
+        {          
+            SimplInjectRepository.InjectTypesFrom("DummyProject");
+            SimplInjectRepository.InjectTypesFrom("DummyProject");
+
+            SimplInjectRepository.Get<ConcreteClassService>().Should().Not.Be.Null();
+        }
 
         [TestMethod]
         public void ShouldInjectTypesBasedOnScope()
